@@ -1,6 +1,6 @@
 Name:		texlive-pbibtex-base
 Version:	61914
-Release:	1
+Release:	2
 Summary:	Bibliography styles and miscellaneous files for pBibTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pbibtex-base
