@@ -3,7 +3,7 @@ Version:	61914
 Release:	2
 Summary:	Bibliography styles and miscellaneous files for pBibTeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/pbibtex-base
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pbibtex-base
 License:	bsd3
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.doc.r%{version}.tar.xz
