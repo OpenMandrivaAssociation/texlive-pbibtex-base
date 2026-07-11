@@ -1,59 +1,22 @@
-Name:		texlive-pbibtex-base
-Version:	61914
-Release:	2
+%global tl_name pbibtex-base
+%global tl_revision 66085
+
+Name:		texlive-%{tl_name}
+Version:	%{tl_revision}
+Release:	1
 Summary:	Bibliography styles and miscellaneous files for pBibTeX
 Group:		Publishing
-URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/pbibtex-base
+URL:		https://www.ctan.org/tex-archive/biblio/pbibtex/pbibtex-base
 License:	bsd3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.doc.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/pbibtex-base.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-These are miscellaneous files, including bibliography styles
-(.bst), for pBibTeX, which is a Japanese extended version of
-BibTeX contained in TeX Live. The bundle is a redistribution
-derived from the ptex-texmf distribution by ASCII MEDIA WORKS.
+These are miscellaneous files, including bibliography styles (.bst), for
+pBibTeX, which is a Japanese extended version of BibTeX contained in TeX
+Live. The bundle is a redistribution derived from the ptex-texmf
+distribution by ASCII MEDIA WORKS.
 
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%{_texmfdistdir}/pbibtex
-%{_texmfdistdir}/pbibtex/bst
-%{_texmfdistdir}/pbibtex/bst/tipsj.bst
-%{_texmfdistdir}/pbibtex/bst/tieice.bst
-%{_texmfdistdir}/pbibtex/bst/junsrt.bst
-%{_texmfdistdir}/pbibtex/bst/jplain.bst
-%{_texmfdistdir}/pbibtex/bst/jorsj.bst
-%{_texmfdistdir}/pbibtex/bst/jname.bst
-%{_texmfdistdir}/pbibtex/bst/jipsj.bst
-%{_texmfdistdir}/pbibtex/bst/jalpha.bst
-%{_texmfdistdir}/pbibtex/bst/jabbrv.bst
-%{_texmfdistdir}/pbibtex/bib
-%{_texmfdistdir}/pbibtex/bib/jxampl.bib
-%{_texmfdistdir}/doc
-%doc %{_texmfdistdir}/doc/ptex
-%doc %{_texmfdistdir}/doc/ptex/pbibtex
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/jbtxdoc.bib
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/jbtxbst.doc
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/jbibtex.bib
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/generate.sh
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/cpp.awk
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/README.md
-%doc %{_texmfdistdir}/doc/ptex/pbibtex/LICENSE
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
